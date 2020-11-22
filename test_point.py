@@ -117,6 +117,39 @@ def test_should_check_get_angle():
     assert central_point.get_angle(end_point_100, end_point_0) == 300
     assert central_point.get_angle(end_point_100, end_point_50) == 350
 
+def test_should_check_get_dlugosc():
+    # given
+    begin_point = Point("P1", 14, 12)
+    end_point = Point("P2", 20, 20)
+
+    # when
+    # then
+    assert begin_point.get_length(end_point) == 10
+    assert end_point.get_length(begin_point) == 10
+    assert end_point.get_length(end_point) == 0
+
+def test_should_check_get_azymut():
+    # given
+    begin_point = Point("P0", 14, 16)
+    end_point = Point("P3", 10, 20)
+
+    # when
+    # then
+    assert begin_point.get_azimuth(end_point) == 150
+
+def test_should_check_get_kat():
+    # given
+    central_point = Point('P1', 14, 16)
+    end_point = Point('P3', 10, 20)
+    end_point_1 = Point('P4', 20, 10)
+
+    # when
+    # then
+    assert central_point.get_angle(end_point, end_point_1) == 200
+
+
+
+
 
 
 

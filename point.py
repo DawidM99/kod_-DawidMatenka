@@ -43,3 +43,21 @@ class Point(object):
         azimuth_right = self.get_azimuth(right)
         angle = azimuth_right - azimuth_left
         return normalize_angle(angle)
+
+    def get_dlugosc(self, other):
+        return((other.x - self.x) ** 2 + (other.y - self.y) ** 2) ** 0,5
+
+    def get_azymut(self, other):
+        delta_x = other.x - self.x
+        delta_y = other.y - self.y
+        angle = radians_to_grads(math.atan2(delta_y, delta_x))
+        return normalize_angle(angle)
+
+    def get_kat(self, left, right):
+        azimuth_left = self.get_azimuth(left)
+        azimuth_right = self.get_azimuth(right)
+        angle = azimuth_right - azimuth_left
+        return normalize_angle(angle)
+
+
+
